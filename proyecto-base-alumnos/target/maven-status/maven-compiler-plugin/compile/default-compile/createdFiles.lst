@@ -1,0 +1,5 @@
+com\hellin\almacen\model\Articulo.class
+com\hellin\almacen\service\ArticuloService.class
+com\hellin\almacen\repository\ArticuloRepository.class
+com\hellin\almacen\controller\ArticuloController.class
+com\hellin\almacen\AlmacenApplication.class
