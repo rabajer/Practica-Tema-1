@@ -18,10 +18,14 @@ public class ArticuloService {
         this.repositorio = repositorio;
     }
 
-    public List<Articulo> listarTodos() {
-        // TODO (#n de la incidencia): devolver todos los artículos. Pista: repositorio.findAll()
-        throw new UnsupportedOperationException("Pendiente de implementar");
-    }
+    /**
+ * Devuelve todos los artículos almacenados en el repositorio.
+ *
+ * @return lista con todos los artículos.
+ */
+public List<Articulo> listarTodos() {
+    return repositorio.findAll();
+}
 
     public Optional<Map<String, Object>> buscarBasico(Integer id) {
         // TODO (#n de la incidencia): buscar el artículo por id y devolver un mapa con id, nombre y stock.
