@@ -1,31 +1,58 @@
-package com.hellin.almacen.service;
+
+package com.hellin.almacen.controller;
 
 import com.hellin.almacen.model.Articulo;
-import com.hellin.almacen.repository.ArticuloRepository;
-import org.springframework.stereotype.Service;
+import com.hellin.almacen.service.ArticuloService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
-// TODO: documentar la clase y todos sus métodos con Javadoc.
-@Service
-public class ArticuloService {
+/**
+ * Controlador REST para consultar los artículos del almacén.
+ */
+@RestController
+@RequestMapping("/api/articulos")
+public class ArticuloController {
 
-    private final ArticuloRepository repositorio;
+    private final ArticuloService servicio;
 
-    public ArticuloService(ArticuloRepository repositorio) {
-        this.repositorio = repositorio;
+    /**
+     * Construye el controlador con el servicio de artículos.
+     *
+     * @param servicio servicio que gestiona las consultas de artículos
+     */
+    public ArticuloController(ArticuloService servicio) {
+        this.servicio = servicio;
     }
 
-    public List<Articulo> listarTodos() {
-        // TODO (#n de la incidencia): devolver todos los artículos. Pista: repositorio.findAll()
-        throw new UnsupportedOperationException("Pendiente de implementar");
+    /**
+     * Devuelve todos los artículos del almacén.
+     *
+     * @return respuesta HTTP 200 con la lista de artículos
+     */
+    @GetMapping
+    public ResponseEntity<List<Articulo>> listarTodos() {
+        return ResponseEntity.ok(servicio.listarTodos());
     }
 
-    public Optional<Map<String, Object>> buscarBasico(Integer id) {
-        // TODO (#n de la incidencia): buscar el artículo por id y devolver un mapa con id, nombre y stock.
-        // Si el stock es 0, añadir "mensaje": "Agotado". Si no existe, Optional.empty().
-        throw new UnsupportedOperationException("Pendiente de implementar");
+    /**
+     * Devuelve los datos básicos de un artículo.
+     *
+     * @param id identificador del artículo que se desea consultar
+     * @return respuesta HTTP 200 con los datos del artículo,
+     *         o HTTP 404 si no existe
+     */
+    @GetMapping("/{id}/basico")
+    public ResponseEntity<Map<String, Object>> buscarBasico(
+            @PathVariable Integer id) {
+
+        return servicio.buscarBasico(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
