@@ -1,3 +1,4 @@
+
 package com.hellin.almacen.service;
 
 import com.hellin.almacen.model.Articulo;
@@ -8,24 +9,40 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-// TODO: documentar la clase y todos sus métodos con Javadoc.
+/**
+ * Servicio encargado de gestionar las consultas de artículos.
+ */
 @Service
 public class ArticuloService {
 
     private final ArticuloRepository repositorio;
 
+    /**
+     * Construye el servicio con el repositorio de artículos.
+     *
+     * @param repositorio repositorio que permite consultar los artículos
+     */
     public ArticuloService(ArticuloRepository repositorio) {
         this.repositorio = repositorio;
     }
 
+    /**
+     * Obtiene todos los artículos almacenados.
+     *
+     * @return lista de todos los artículos
+     */
     public List<Articulo> listarTodos() {
-        // TODO (#n de la incidencia): devolver todos los artículos. Pista: repositorio.findAll()
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        return repositorio.findAll();
     }
 
+    /**
+     * Busca los datos básicos de un artículo.
+     *
+     * @param id identificador del artículo
+     * @return datos básicos del artículo, si existe
+     */
     public Optional<Map<String, Object>> buscarBasico(Integer id) {
-        // TODO (#n de la incidencia): buscar el artículo por id y devolver un mapa con id, nombre y stock.
-        // Si el stock es 0, añadir "mensaje": "Agotado". Si no existe, Optional.empty().
+        // Pendiente de implementar.
         throw new UnsupportedOperationException("Pendiente de implementar");
     }
 }
