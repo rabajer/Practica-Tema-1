@@ -20,9 +20,15 @@ public class ArticuloController {
 
     private final ArticuloService servicio;
 
-    public ArticuloController(ArticuloService servicio) {
-        this.servicio = servicio;
-    }
+
+/**
+ * Crea el controlador con el servicio de artículos.
+ *
+ * @param servicio servicio que permite consultar los artículos.
+ */
+public ArticuloController(ArticuloService servicio) {
+    this.servicio = servicio;
+}
 
     /**
  * Obtiene todos los artículos del catálogo.
