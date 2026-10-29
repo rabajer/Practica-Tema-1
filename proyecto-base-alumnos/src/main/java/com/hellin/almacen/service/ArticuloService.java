@@ -8,21 +8,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-// TODO: documentar la clase y todos sus métodos con Javadoc.
+/**
+ * Servicio encargado de gestionar las operaciones de los artículos.
+ */
 @Service
 public class ArticuloService {
 
     private final ArticuloRepository repositorio;
 
+    /**
+     * Crea el servicio de artículos.
+     *
+     * @param repositorio repositorio para acceder a los artículos.
+     */
     public ArticuloService(ArticuloRepository repositorio) {
         this.repositorio = repositorio;
     }
 
+    /**
+     * Obtiene todos los artículos almacenados en la base de datos.
+     *
+     * @return una lista con todos los artículos.
+     */
     public List<Articulo> listarTodos() {
-        // TODO (#n de la incidencia): devolver todos los artículos. Pista: repositorio.findAll()
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        return repositorio.findAll();
     }
 
+    /**
+     * Busca un artículo por su identificador y devuelve sus datos básicos.
+     *
+     * @param id identificador del artículo.
+     * @return un mapa con los datos del artículo o vacío si no existe.
+     */
     public Optional<Map<String, Object>> buscarBasico(Integer id) {
         // TODO (#n de la incidencia): buscar el artículo por id y devolver un mapa con id, nombre y stock.
         // Si el stock es 0, añadir "mensaje": "Agotado". Si no existe, Optional.empty().
