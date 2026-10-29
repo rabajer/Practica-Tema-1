@@ -8,7 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.hellin.almacen.model.Articulo;
 
-// TODO: documentar la clase y todos sus métodos con Javadoc.
+/**
+ * Controlador REST para consultar los artículos de la papelería.
+ * Proporciona endpoints para obtener el catálogo y los datos básicos
+ * de un artículo.
+ */
+
 @RestController
 @RequestMapping("/api/articulos")
 public class ArticuloController {
