@@ -118,17 +118,25 @@ src/main/resources/  application*.properties, schema.sql, data.sql
 
 ## Equipo y flujo de trabajo
 
-| Integrante | Rol |
-|------------|-----|
-| _Nombre 1_ | _Planificación_ |
-| _Nombre 2_ | _Documentación_ |
-| _Nombre 3_ | _Integración del código_ |
+| Integrante | Nombre | Usuario de GitHub | Rol |
+|------------|--------|-------------------|-----|
+| A | Julio Villagaray | @gabrielvillagarau9-lgtm | Desarrollo del servicio listarTodos() |
+| B | Anthony Tapia | @TApIA-beep | Controlador REST y documentación |
+| C | Manuel Llamas | @rabajer | Búsqueda básica de artículos e integración |
 
-- Cada tarea es una **Issue** y se planifica en **Projects**; la documentación funcional está en la **wiki**.
-- Una rama por tarea (`feat/...`, `docs/...`) y *Pull Request* revisado por otra persona antes de fusionar a `main`.
-- Commits en formato convencional referenciando la issue, p. ej. `feat: añade endpoint de datos básicos (#4)`.
-- Los roles rotan entre prácticas.
+- Cada tarea es una **Issue** y se planifica en **Projects**.
+- Una rama por tarea (`feature/...`, `docs/...`) y Pull Request revisado por otro integrante antes de fusionar a `main`.
+- Los commits siguen el formato convencional y referencian la Issue correspondiente.
+- Los roles se distribuyen entre los integrantes del equipo.
 
 ## Uso de IA
 
-_Declarar aquí qué se ha consultado a una IA (comandos, errores…). Nunca se introducen contraseñas ni claves._
+Se ha utilizado ChatGPT como herramienta de apoyo durante el desarrollo de la práctica para:
+
+- Resolver dudas sobre Maven, Java 21 y Spring Boot.
+- Solucionar problemas de configuración de PostgreSQL y Docker.
+- Diagnosticar errores durante la compilación y ejecución.
+- Consultar comandos de Git y GitHub.
+- Revisar y mejorar la documentación del proyecto.
+
+Las soluciones propuestas se han comprobado mediante la ejecución del proyecto y sus comandos correspondientes.
